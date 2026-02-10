@@ -29,13 +29,12 @@ app.post("/create",function(req,res){
     })
     let token = jwt.sign({email},"nnnnsnsnsns");
 res.cookie("token",token);
-    // res.send(createdUser);
     res.redirect("/login");
     })
   })
 })
 app.get("/logout",function(req,res){
-  res.cookie("token","");
+  res.clearCookie("token");
   res.redirect("/")
 })
 
